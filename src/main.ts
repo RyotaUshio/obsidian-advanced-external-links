@@ -1,14 +1,18 @@
 import { Plugin } from 'obsidian';
-import { MyPluginSettings, DEFAULT_SETTINGS, SampleSettingTab } from 'settings';
+
+import { onEditorPaste } from 'handle-paste';
+import { AdvancedExternalLinksSettings, DEFAULT_SETTINGS, AdvancedExternalLinksSettingTab } from 'settings';
 
 
-export default class MyPlugin extends Plugin {
-	settings: MyPluginSettings;
+export default class AdvancedExternalLinksPlugin extends Plugin {
+	settings: AdvancedExternalLinksSettings;
 
 	async onload() {
 		await this.loadSettings();
 		await this.saveSettings();
-		this.addSettingTab(new SampleSettingTab(this));
+		this.addSettingTab(new AdvancedExternalLinksSettingTab(this));
+
+		this.registerEvent(this.app.workspace.on('editor-paste', onEditorPaste, this));
 	}
 
 	async loadSettings() {
