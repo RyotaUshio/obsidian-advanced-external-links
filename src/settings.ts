@@ -19,7 +19,7 @@ export interface AdvancedExternalLinksSettings {
 type KeysOfType<Obj, Type> = NonNullable<{ [k in keyof Obj]: Obj[k] extends Type ? k : never }[keyof Obj]>;
 
 export const DEFAULT_SETTINGS: AdvancedExternalLinksSettings = {
-	handleHighlightUrlOnly: true,
+	handleHighlightUrlOnly: false,
 	formats: [
 		{
 			name: 'Quote',

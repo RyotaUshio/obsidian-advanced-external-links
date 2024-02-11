@@ -2,7 +2,7 @@
 
 This [Obsidian.md](https://obsidian.md) plugin lets you paste URLs cleverly.
 
-- Automatically fetched the title of the target webpage
+- Automatically fetch the title of the target webpage
 - Format a link to a text highlight with highly customizable templates
 
 ## Installation
