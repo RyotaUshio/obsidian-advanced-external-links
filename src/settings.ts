@@ -123,7 +123,7 @@ export class AdvancedExternalLinksSettingTab extends PluginSettingTab {
 
 	addFundingButton() {
 		return this.addHeading('Support development', 'lucide-heart')
-			.setDesc('If you find PDF++ helpful, please consider supporting the development to help me keep this plugin alive.\n\nIf you prefer PayPal, please make donations via Ko-fi. Thank you!')
+			.setDesc(`If you find ${this.plugin.manifest.name} helpful, please consider supporting the development to help me keep this plugin alive.\n\nIf you prefer PayPal, please make donations via Ko-fi. Thank you!`)
 			.then((setting) => {
 				const infoEl = setting.infoEl;
 				const iconEl = setting.settingEl.firstElementChild;
@@ -134,9 +134,9 @@ export class AdvancedExternalLinksSettingTab extends PluginSettingTab {
 				container.appendChild(infoEl);
 				setting.settingEl.prepend(container);
 
-				setting.settingEl.id = 'pdf-plus-funding';
-				container.id = 'pdf-plus-funding-icon-info-container';
-				iconEl.id = 'pdf-plus-funding-icon';
+				setting.settingEl.id = `${this.plugin.manifest.id}-funding`;
+				container.id = `${this.plugin.manifest.id}-funding-icon-info-container`;
+				iconEl.id = `${this.plugin.manifest.id}-funding-icon`;
 			})
 			.addButton((button) => {
 				button

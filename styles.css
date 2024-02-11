@@ -1,0 +1,21 @@
+#advanced-external-links-funding {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-end;
+
+    .setting-item-control {
+        padding-top: var(--size-4-4);
+    }
+}
+
+#advanced-external-links-funding-icon-info-container {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: left; */
+    align-items: center;
+}
+
+#advanced-external-links-funding-icon {
+    margin-right: var(--size-4-4);
+}
