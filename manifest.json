@@ -1,7 +1,7 @@
 {
     "id": "advanced-external-links",
     "name": "Advanced External Links",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "minAppVersion": "1.3.5",
     "description": "Paste links to webpages or text highlights with automatically fetched titles and highly customizable templates.",
     "author": "Ryota Ushio",
