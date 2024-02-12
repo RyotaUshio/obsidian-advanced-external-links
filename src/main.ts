@@ -1,4 +1,4 @@
-import { Editor, Notice, Plugin, requestUrl } from 'obsidian';
+import { Editor, Menu, Notice, Plugin, requestUrl } from 'obsidian';
 
 import { AdvancedExternalLinksSettings, DEFAULT_SETTINGS, AdvancedExternalLinksSettingTab } from 'settings';
 import { TemplateProcessor } from 'template';
@@ -14,6 +14,7 @@ export default class AdvancedExternalLinksPlugin extends Plugin {
 		this.addSettingTab(new AdvancedExternalLinksSettingTab(this));
 
 		this.registerEvent(this.app.workspace.on('editor-paste', this.onEditorPaste, this));
+		this.registerRibbonIcon();
 	}
 
 	async loadSettings() {
@@ -95,5 +96,23 @@ export default class AdvancedExternalLinksPlugin extends Plugin {
 		}
 
 		return evaluated;
+	}
+
+	registerRibbonIcon() {
+		this.addRibbonIcon('lucide-quote', `${this.manifest.name}: Change paste format`, (evt) => {
+			const menu = new Menu();
+
+			for (const [index, format] of this.settings.formats.entries()) {
+			menu.addItem((item) => {
+				item.setTitle(format.name)
+					.onClick(() => {
+						this.settings.formatIndex = index;
+						this.saveSettings();
+					});
+			});
+			}
+
+			menu.showAtMouseEvent(evt);
+		});
 	}
 }

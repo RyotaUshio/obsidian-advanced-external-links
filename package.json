@@ -1,6 +1,6 @@
 {
     "name": "obsidian-advanced-external-links",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "An Obsidian.md plugin to paste links to webpages or text highlights with automatically fetched titles and highly customizable templates.",
     "scripts": {
         "dev": "node esbuild.config.mjs",

@@ -344,7 +344,9 @@ export class AdvancedExternalLinksSettingTab extends PluginSettingTab {
 		for (let index = 0; index < this.plugin.settings.formats.length; index++) {
 			this.addFormatsSetting(index);
 		}
-		this.addIndexDropdownSetting('formatIndex', this.plugin.settings.formats.map((format) => format.name));
+		this.addIndexDropdownSetting('formatIndex', this.plugin.settings.formats.map((format) => format.name))
+			.setName('Default format')
+			.setDesc('You can switch to other formats from the icon in the left ribbon.')
 
 		this.addFundingButton();
 
