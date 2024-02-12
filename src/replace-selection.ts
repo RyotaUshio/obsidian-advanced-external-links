@@ -1,4 +1,4 @@
-import { Editor } from 'obsidian';
+import { Editor, EditorPosition, EditorRange, EditorSelection } from 'obsidian';
 
 
 /**
@@ -16,6 +16,21 @@ export const replaceSelectionAsync = async (editor: Editor, textPromise: Promise
     for (const selection of selections) {
         // the last parameter `origin` is passed to CodeMirror's Transaction.userEvent.of(...)
         // (https://codemirror.net/docs/ref/#state.Transaction^userEvent).
-        editor.replaceRange(text, selection.anchor, selection.head, 'input.paste');
+        const { from, to } = editorSelectionToEditorRange(selection);
+        editor.replaceRange(text, from, to, 'input.paste');
     }
 };
+
+const comesBefore = (pos1: EditorPosition, pos2: EditorPosition) => {
+    return pos1.line === pos2.line ? pos1.ch <= pos2.ch : pos1.line < pos2.line;
+}
+
+const editorSelectionToEditorRange = (selection: EditorSelection): EditorRange => {
+    return comesBefore(selection.anchor, selection.head) ? {
+        from: selection.anchor,
+        to: selection.head,
+    } : {
+        from: selection.head,
+        to: selection.anchor,
+    };
+}
