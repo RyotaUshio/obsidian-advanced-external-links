@@ -3,7 +3,9 @@
 This [Obsidian.md](https://obsidian.md) plugin lets you paste URLs cleverly.
 
 - Automatically fetch the title of the target webpage
-- Format a link to a text highlight with highly customizable templates
+- ***Format a link to a text highlight with highly customizable templates***: you can annotate webpages without read-it-later apps like Omnivore.
+
+<img width="836" alt="image" src="https://github.com/RyotaUshio/obsidian-advanced-external-links/assets/72342591/cdbb28dc-bc16-4996-9166-ce79a838a7dc">
 
 ## Installation
 
